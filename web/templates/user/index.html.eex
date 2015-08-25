@@ -1,0 +1,5 @@
+<ul>
+  <%= for user <- @users do %>
+    <li><%= name(user) %></li>
+  <% end %>
+</ul>
