@@ -15,7 +15,6 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :investment_time, InvestmentTime.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  hostname: "localhost",
   database: "investment_time_test",
   pool: Ecto.Adapters.SQL.Sandbox
