@@ -68,5 +68,5 @@ config :investment_time, InvestmentTime.Endpoint,
 # Configure your database
 config :investment_time, InvestmentTime.Repo,
   adapter: Ecto.Adapters.Postgres,
-  database: System.get_env("DATABASE_URL"),
+  url: System.get_env("DATABASE_URL"),
   pool_size: 20
