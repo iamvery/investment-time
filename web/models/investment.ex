@@ -22,3 +22,9 @@ defmodule InvestmentTime.Investment do
     |> cast(params, @required_fields, @optional_fields)
   end
 end
+
+defimpl Phoenix.HTML.Safe, for: InvestmentTime.Investment do
+  def to_iodata(investment) do
+    to_string(investment.inserted_at)
+  end
+end
