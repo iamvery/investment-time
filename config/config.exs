@@ -14,6 +14,10 @@ config :investment_time, InvestmentTime.Endpoint,
   pubsub: [name: InvestmentTime.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :mailer,
+  mailgun_domain: System.get_env("MAILGUN_DOMAIN"),
+  mailgun_key: System.get_env("MAILGUN_API_KEY")
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
