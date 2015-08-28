@@ -5,8 +5,19 @@
   <%= submit "I will invest." %>
 <% end %>
 
-<ul>
-  <%= for user <- @users do %>
-    <li><%= name(user) %></li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>most recent investment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for user <- @users do %>
+      <tr>
+        <td><%= name(user) %></td>
+        <td><%= most_recent_investment(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

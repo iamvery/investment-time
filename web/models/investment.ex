@@ -1,16 +1,14 @@
-defmodule InvestmentTime.User do
+defmodule InvestmentTime.Investment do
   use InvestmentTime.Web, :model
 
-  alias InvestmentTime.Investment
-
-  schema "users" do
-    field :email, :string
-    has_many :investments, Investment
+  schema "investments" do
+    belongs_to :user, User
+    field :used, :boolean
 
     timestamps
   end
 
-  @required_fields ~w(email)
+  @required_fields ~w(user_id used)
   @optional_fields ~w()
 
   @doc """
@@ -22,5 +20,11 @@ defmodule InvestmentTime.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+end
+
+defimpl Phoenix.HTML.Safe, for: InvestmentTime.Investment do
+  def to_iodata(investment) do
+    to_string(investment.inserted_at)
   end
 end

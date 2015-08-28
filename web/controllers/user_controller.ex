@@ -6,7 +6,7 @@ defmodule InvestmentTime.UserController do
 
   def index(conn, _params) do
     user = User.changeset(%User{})
-    users = Repo.all(User)
+    users = Repo.all(User) |> Repo.preload(:investments)
     render conn, "index.html", user: user, users: users
   end
 
