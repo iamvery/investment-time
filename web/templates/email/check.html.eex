@@ -1,0 +1,4 @@
+<h1>Well?</h1>
+<%= link "👍", to: "http://investment-time.herokuapp.com/users/#{@user.id}/invest/yay" %>
+or
+<%= link "👎", to: "http://investment-time.herokuapp.com/users/#{@user.id}/invest/nay" %>

@@ -8,14 +8,14 @@
 <table>
   <thead>
     <tr>
-      <th>name</th>
+      <th>email</th>
       <th>most recent investment</th>
     </tr>
   </thead>
   <tbody>
     <%= for user <- @users do %>
       <tr>
-        <td><%= name(user) %></td>
+        <td><%= user.email %></td>
         <td><%= most_recent_investment(user) %></td>
       </tr>
     <% end %>

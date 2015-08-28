@@ -18,7 +18,7 @@ defmodule InvestmentTime.Mixfile do
   def application do
     [mod: {InvestmentTime, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :quantum]]
   end
 
   # Specifies which paths to compile per environment
@@ -36,6 +36,8 @@ defmodule InvestmentTime.Mixfile do
       {:phoenix_html, "~> 2.1"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:cowboy, "~> 1.0"},
+      {:mailgun, "~> 0.1"},
+      {:quantum, ">= 1.3.2"},
     ]
   end
 end
