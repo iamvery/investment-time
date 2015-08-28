@@ -18,6 +18,10 @@ config :mailer,
   mailgun_domain: System.get_env("MAILGUN_DOMAIN"),
   mailgun_key: System.get_env("MAILGUN_API_KEY")
 
+config :quantum, cron: [
+  "@weekly": &InvestmentTime.Mailer.ask_everyone/0,
+]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

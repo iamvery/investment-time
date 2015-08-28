@@ -18,7 +18,7 @@ defmodule InvestmentTime.Mixfile do
   def application do
     [mod: {InvestmentTime, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :quantum]]
   end
 
   # Specifies which paths to compile per environment
