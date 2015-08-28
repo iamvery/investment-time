@@ -37,6 +37,7 @@ defmodule InvestmentTime.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:cowboy, "~> 1.0"},
       {:mailgun, "~> 0.1"},
+      {:quantum, ">= 1.3.2"},
     ]
   end
 end
