@@ -1,8 +1,11 @@
 defmodule InvestmentTime.User do
   use InvestmentTime.Web, :model
 
+  alias InvestmentTime.Investment
+
   schema "users" do
     field :email, :string
+    has_many :investments, Investment
 
     timestamps
   end
