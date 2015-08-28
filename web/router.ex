@@ -17,7 +17,10 @@ defmodule InvestmentTime.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", UserController, :index
-    resources "/users", UserController, only: [:create]
+    resources "/users", UserController, only: [:create] do
+      get "/invest/yay", InvestmentController, :yay, as: :yay
+      get "/invest/nay", InvestmentController, :nay, as: :nay
+    end
   end
 
   # Other scopes may use custom stacks.
