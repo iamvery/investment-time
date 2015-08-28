@@ -13,7 +13,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :investment_time, InvestmentTime.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: "investment-time.herokuapp.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
 
 # Do not print debug messages in production
@@ -58,4 +58,15 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+
+# In this file, we keep production configuration that
+# you likely want to automate and keep it away from
+# your version control system.
+config :investment_time, InvestmentTime.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Configure your database
+config :investment_time, InvestmentTime.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: System.get_env("DATABASE_URL"),
+  pool_size: 20
