@@ -20,7 +20,8 @@ config :mailer,
 
 config :quantum, cron: [
   "* * * * *": fn -> IO.puts("Heartbeat") end,
-  "@weekly": &InvestmentTime.Mailer.ask_everyone/0,
+  # Monday at 10 AM Eastern US time
+  "0 14 * * 1": &InvestmentTime.Mailer.ask_everyone/0,
 ]
 
 # Configures Elixir's Logger
