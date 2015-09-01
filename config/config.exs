@@ -19,6 +19,7 @@ config :mailer,
   mailgun_key: System.get_env("MAILGUN_API_KEY")
 
 config :quantum, cron: [
+  "* * * * *": fn -> IO.puts("Heartbeat") end,
   "@weekly": &InvestmentTime.Mailer.ask_everyone/0,
 ]
 
